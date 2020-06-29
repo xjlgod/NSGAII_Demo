@@ -1,19 +1,20 @@
 # -*- coding: utf-8 -*-
 """main.py"""
-import geatpy as ea # import geatpy
-from MyProblem import MyProblem# 导入自定义问题接口
+import geatpy as ea  # import geatpy
+from MyProblem import MyProblem  # 导入自定义问题接口
+
 """=========================实例化问题对象==========================="""
-problem = MyProblem() # 实例化问题对象
+problem = MyProblem()  # 实例化问题对象
 """===========================种群设置=============================="""
-Encoding = 'RI' # 编码方式
-NIND = 100 # 种群规模
-Field = ea.crtfld(Encoding, problem.varTypes, problem.ranges,problem.borders) # 创建区域描述器
-population = ea.Population(Encoding, Field, NIND) #
-#实例化种群对象（此时种群还没被真正初始化，仅仅是生成一个种群对象）
+Encoding = 'RI'  # 编码方式
+NIND = 100  # 种群规模
+Field = ea.crtfld(Encoding, problem.varTypes, problem.ranges, problem.borders)  # 创建区域描述器
+population = ea.Population(Encoding, Field, NIND)  #
+# 实例化种群对象（此时种群还没被真正初始化，仅仅是生成一个种群对象）
 """=========================算法参数设置============================"""
-myAlgorithm = ea.moea_NSGA2_templet(problem, population) #实例化一个算法模板对象
-myAlgorithm.MAXGEN = 200 # 最大遗传代数
-myAlgorithm.drawing = 1 # 设置绘图方式
+myAlgorithm = ea.moea_NSGA2_templet(problem, population)  # 实例化一个算法模板对象
+myAlgorithm.MAXGEN = 200  # 最大遗传代数
+myAlgorithm.drawing = 1  # 设置绘图方式
 
 """===================调用算法模板进行种群进化=======================
 调用run执行算法模板，得到帕累托最优解集NDSet。
